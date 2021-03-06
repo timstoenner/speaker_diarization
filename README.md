@@ -147,6 +147,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-shield]: https://img.shields.io/github/issues/timstoenner/speaker_diarization.svg?style=for-the-badge
 [issues-url]: https://github.com/timstoenner/speaker_diarization/issues
 [license-shield]: https://img.shields.io/github/license/timstoenner/speaker_diarization.svg?style=for-the-badge
-[license-url]: https://github.com/timstoenner/speaker_diarization/blob/master/LICENSE.txt
+[license-url]: https://github.com/timstoenner/speaker_diarization/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tim-stoenner
