@@ -59,7 +59,7 @@
 
 
 
-> This repo is a basic pipeline for transcribing audio with Assemblyi API, and diarizing speech occurrences for multiple speakers.
+> This repo is a basic pipeline for transcribing audio with Assemblyi AI API, and diarizing speech occurrences for multiple speakers.
 
 
 
@@ -79,22 +79,15 @@
 Install pyannote audio via instructions at 
 [Pyannote](https://github.com/pyannote/pyannote-audio/tree/master)
 
-'''bash
+```bash
 $ pip install -q pyannote.audio==1.1 
 $ pip install ffmpeg 
 $ pip install --upgrade AudioConverter 
-'''
-
-<br />
-<p align='left'>
-  
-  
-</p>
-
+```
 
 ## Usage
 
-
+An audio file can be uploaded, transcribed and diarized. Output is a dataframe timestamped sentences, separated by speaker. See jupyter notebook example for more details.
 
 <!-- ROADMAP -->
 
@@ -128,7 +121,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * [Assembly AI API](https://www.assemblyai.com/)
 * [Pyannote](https://github.com/pyannote/pyannote-audio/tree/master)
 
-'''bibtex
+```bibtex
 @inproceedings{Bredin2020,
   Title = {{pyannote.audio: neural building blocks for speaker diarization}},
   Author = {{Bredin}, Herv{\'e} and {Yin}, Ruiqing and {Coria}, Juan Manuel and {Gelly}, Gregory and {Korshunov}, Pavel and {Lavechin}, Marvin and {Fustes}, Diego and {Titeux}, Hadrien and {Bouaziz}, Wassim and {Gill}, Marie-Philippe},
@@ -137,7 +130,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
   Month = {May},
   Year = {2020},
 }
-'''
+```
 
 
 
