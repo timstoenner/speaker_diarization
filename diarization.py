@@ -3,7 +3,7 @@
 #pip install --upgrade AudioConverter
 
 
-
+# These imports are useful for exploring diarization visualizations in notebook
 from pyannote.core import Segment, notebook
 from pyannote.audio.features import RawAudio
 from pyannote.database.util import load_rttm
@@ -14,15 +14,15 @@ import numpy as np
 import re
 import os
 import sys
-import time
 import requests
 import subprocess
 import json
+import shutil
 
 from glob import glob
 
 
-#need to read mp4 and convert to wav
+# Need json file with API key for Assembly AI
 f = open("keys.json", "r")
 keys = json.load(f)
 ASSEMBLY_API = keys["API"]
@@ -49,7 +49,11 @@ def convert_to_wav():
 
     return audio_file
 
-def diarize():
+def diarize(file):
+    
+    
+    shutil.copy(file, 'audio_in/')
+    
     
     audio_file = convert_to_wav()
 
@@ -110,19 +114,20 @@ def diarize():
             df = pd.concat([df,df2], axis=0)
     
     df.index = [diar_df.iloc[:,0]]
-    
+    df.rename(columns={0:'Sentences'}, inplace=True)
     df.reset_index(inplace=True)
     df[['Start', 'End']] = diar_df[['sent_start', 'sent_end']]
     
+    diar_df = df.copy()
     diar_df['Talk_Time'] = diar_df['End'] - diar_df['Start']
     diar_df = diar_df.reindex(columns=['Speaker', 'Sentences', 'Start', 'End', 'Talk_Time'])
 
-
-    keywords, summary, links, crosstab = feedback(df=diar_df)
-
+    shutil.os.remove('audio_in/' + file)
+    delete_file = glob('audio_out/*.wav')[0]
+    shutil.os.remove(delete_file)
     
 
-    return diar_df, keywords, summary, links, crosstab, highlights_list, words_df, confidence, text
+    return diar_df, highlights_list, words_df, confidence, text
 
 
 
